@@ -1,0 +1,18 @@
+---
+import Messages from 'components/Dashboard/Messages';
+import SideNav from 'components/Dashboard/Common/SideNav';
+import DashNav from 'components/Dashboard/Common/DashNav';
+import Layout from 'layouts/Layout.astro';
+---
+
+<Layout title="Cases">
+	<DashNav client:load/>
+	<SideNav activeMenu="messages"  />
+	<Messages client:load />
+</Layout>
+
+<style is:global>
+	body {
+		font-family: Poppins;
+	}
+</style>

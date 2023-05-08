@@ -1,0 +1,39 @@
+---
+import Home from 'components/Dashboard/Home';
+import SideNav from 'components/Dashboard/Common/SideNav';
+import DashNav from 'components/Dashboard/Common/DashNav';
+import Layout from 'layouts/Layout.astro';
+import Activities from 'components/Dashboard/Home/Activities';
+import {ACTIVITIES} from 'constants/DashboardConstants'
+import PhyisicanCarousel from 'components/Dashboard/Home/PhyisicanCarousel';
+import VideoAppointment from 'components/Dashboard/Home/VideoAppoinment';
+
+
+const numDays = 5;
+const date = "2023-02-02";
+const time = "12.00";
+const imageUrl =
+  "https://imgs.search.brave.com/cyo_EoKRmMXUWC60jW-JBgq26RlGenp4_eVcBqRvrfI/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC56/SDZfbW5Fb0lxUWQz/Z1ZYTGpQUjJBSGFI/YSZwaWQ9QXBp";
+ 
+---
+
+<Layout title="Home">
+	<DashNav client:load/>
+	<SideNav activeMenu={'home'} client:load/>
+	<Home client:load />
+	<div class="pt-9 pl-40">
+		<Activities Acts={ACTIVITIES}/>
+	  </div>
+	  <div class="p-20 w-72 h-64"><PhyisicanCarousel client:load /></div>
+	  <div class="pt-9 pl-10">
+		<VideoAppointment numDays={numDays} date={date} time={time} />
+	  </div>
+
+</Layout>
+
+<style is:global>
+	body {
+		font-family: Poppins;
+	}
+</style>
+
